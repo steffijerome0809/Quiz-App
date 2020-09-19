@@ -11,12 +11,19 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 
     <title id="pageTitle">Coding Quiz Challenge</title>
   </head>
 
   <body>
+    <div class="container-fluid">
+      <div class="row page">
+        <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand" href="#">Navbar</a>
+        </nav>
+      </div>
+    </div>
     <div class="container-fluid">
       <div class="row page">
         <a class="highscore col-2" href="highscore.html">
@@ -40,7 +47,6 @@
           <button
             id="startbutton"
             type="button"
-            onclick="quizStart();"
             class="first-page btn btn-danger"
           >
             Start Quiz
@@ -52,28 +58,24 @@
           <br class="quiz" />
           <button
             type="button"
-            onclick="answerCheck(this.id)"
             id="answer1"
             class="quiz btn btn-danger"
           ></button>
           <br class="quiz" />
           <button
             type="button"
-            onclick="answerCheck(this.id)"
             id="answer2"
             class="quiz btn btn-danger"
           ></button>
           <br class="quiz" />
           <button
             type="button"
-            onclick="answerCheck(this.id)"
             id="answer3"
             class="quiz btn btn-danger"
           ></button>
           <br class="quiz" />
           <button
             type="button"
-            onclick="answerCheck(this.id)"
             id="answer4"
             class="quiz btn btn-danger"
           ></button>
