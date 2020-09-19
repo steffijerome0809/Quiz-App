@@ -1,9 +1,12 @@
-h3{
+h3,h1{
     color:orange;
 }
 .navbar{
 
     background-color:purple ;
+}
+body {
+    background-color:olivedrab
 }
 .btn{
     background-color:purple;
