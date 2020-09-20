@@ -6,3 +6,10 @@ router.get('/', (req, res) => {
 
   res.sendFile(filePath);
 });
+
+router.get('/highscores', (req, res) => {
+  const filePath = path.join(__dirname, '../public/highscores.html');
+
+  res.sendFile(filePath);
+});
+module.exports = router;
