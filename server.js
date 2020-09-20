@@ -1,13 +1,13 @@
 var express = require('express');
+//required API and HTML routes
+// const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
 
 const PORT = process.env.PORT || 8080;
 
 // const db = require('./models');
 
-//required API and HTML routes
 
-// const apiRoutes = require('./routes/apiRoutes');
-const htmlRoutes = require('./routes/htmlRoutes');
 
 //creating an express app and configuring middleware
 const app = express();
