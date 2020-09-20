@@ -7,8 +7,6 @@ const PORT = process.env.PORT || 8080;
 
 // const db = require('./models');
 
-
-
 //creating an express app and configuring middleware
 const app = express();
 
@@ -22,8 +20,8 @@ app.use('/', htmlRoutes);
 
 //sequelize connection
 
-// db.sequelize.sync.then(() => {
-app.listen(PORT, () => {
-  console.log(`server listening on port ${PORT}`);
+db.sequelize.sync.then(() => {
+  app.listen(PORT, () => {
+    console.log(`server listening on port ${PORT}`);
+  });
 });
-//});

@@ -1,0 +1,5 @@
+
+DROP DATABASE IF EXISTS quizApp;
+CREATE DATABASE quizApp;
+
+
