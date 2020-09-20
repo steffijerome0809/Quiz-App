@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8000;
 const db = require('./models');
 
 // required our API and HTML Routes
-const apiRoutes = require('./routes/apiRoutes');
+//const apiRoutes = require('./routes/apiRoutes');
 const htmlRoutes = require('./routes/htmlRoutes');
 
 // creating express app and configuring middleware needed for authentication
@@ -22,7 +22,7 @@ app.use(express.static('public'));
 
 // requiring routes
 
-app.use('/api', apiRoutes);
+//app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
 db.sequelize.sync().then(() => {
