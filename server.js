@@ -5,7 +5,7 @@ const htmlRoutes = require('./routes/htmlRoutes');
 
 const PORT = process.env.PORT || 8080;
 
-// const db = require('./models');
+const db = require('./models');
 
 //creating an express app and configuring middleware
 const app = express();
