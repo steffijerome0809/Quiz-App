@@ -5,7 +5,7 @@ const express = require('express');
 
 // Setting up the port and requiring models for syncing
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 const db = require('./models');
 
 // required our API and HTML Routes
