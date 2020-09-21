@@ -1,0 +1,1 @@
+var clearhighscores = $("#clearBtn");
