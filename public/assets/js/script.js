@@ -65,12 +65,10 @@ $(document).ready(() => {
 
   //  function checks if there are anymore questions and if not ends the quiz
   function CodeQuiz() {
-    console.log('code here', qNumber, questioncount);
     if (qNumber >= questioncount) {
       return;
       // quizOver();
     } else {
-      console.log('code here');
       codequestion.text(questionDisplay[qNumber].question);
       let result;
       result = questionDisplay[qNumber].choices.split(':');
