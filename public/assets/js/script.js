@@ -38,10 +38,39 @@ $(document).ready(() => {
 
   //  function hides initial elements and shows quiz relevant ones, then starts main quiz function
   function createQuestion() {
+    // get the questions from db
+    $.get('/api/questions').then((data) => {
+      // loop over the questions
+      console.log(data);
+      const questions = data;
+      // data.forEach((park) => {
+      //   // append them as select options
+      //   const newLoc = $('<option>').attr('value', park.id).text(park.title);
+      //   locationInput.append(newLoc);
+      // });
+      // locationInput.formSelect();
+    });
+
     $('.codeQuiz').hide();
+
     $('.quiz').show();
     CodeQuiz(qNumber);
   }
+
+  //  function checks if there are anymore questions and if not ends the quiz
+  //   function CodeQuiz() {
+  //     if (qNumber >= questions.length) {
+  //       quizOver();
+  //     } else {
+  //       codequestion.innerHTML = questions[qNumber].question;
+  //       answerSelect1.innerHTML = questions[qNumber].choices[0];
+  //       answerSelect2.innerHTML = questions[qNumber].choices[1];
+  //       answerSelect3.innerHTML = questions[qNumber].choices[2];
+  //       answerSelect4.innerHTML = questions[qNumber].choices[3];
+  //     }
+  //   }
+  // $ and API Calllzzzz
+
   // Document => Start Quiz
   $(document).on('click', '#startbutton', () => {
     quizStart();
