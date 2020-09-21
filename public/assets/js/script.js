@@ -72,14 +72,14 @@ $(document).ready(() => {
     } else {
       console.log('code here');
       codequestion.text(questionDisplay[qNumber].question);
-      var result = [];
+      let result;
       result = questionDisplay[qNumber].choices.split(':');
       console.log('choices:', result);
 
-      //   answerSelect1.innerHTML = questions[qNumber].choices[0];
-      //   answerSelect2.innerHTML = questions[qNumber].choices[1];
-      //   answerSelect3.innerHTML = questions[qNumber].choices[2];
-      //   answerSelect4.innerHTML = questions[qNumber].choices[3];
+      answerSelect1.text(result[0]);
+      answerSelect2.text(result[1]);
+      answerSelect3.text(result[2]);
+      answerSelect4.text(result[3]);
     }
   }
   // $ and API Calllzzzz
