@@ -77,7 +77,7 @@ $(document).ready(() => {
   }
 
   //  function checks whether or not answer is the correct one
-  function answerCheck(btnId) {
+  answerCheck = (btnId) => {
     if (btnId.text(questionDisplay[qNumber].answer)) {
       rightAnswer();
       qNumber++;
@@ -86,7 +86,7 @@ $(document).ready(() => {
       qNumber++;
     }
     CodeQuiz(qNumber);
-  }
+  };
   //  this function runs when answer is right
   function rightAnswer() {
     score = timeLeft;
@@ -119,14 +119,13 @@ $(document).ready(() => {
     );
 
     var done = $('#done');
-    done.insertAdjacentHTML(
-      'afterend',
-      '<p id="finalScore">Your final score is ' + score + '</p>'
-    );
+    done.after('<p id="finalScore">Your final score is ' + score + '</p>');
 
-    var submit = document.getElementById('submit');
-    submit.addEventListener('click', function () {
-      var value = document.getElementById('userScore').value;
+    var targetSubmit = $('#submit');
+    targetSubmit.on('click', function (event) {
+      event.preventDefault();
+
+      let value = $('#userScore').value;
       localStorage.setItem(value, score);
       window.location.href = 'highscore.html';
       console.log(window.location.href);
