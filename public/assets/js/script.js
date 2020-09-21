@@ -72,6 +72,10 @@ $(document).ready(() => {
     } else {
       console.log('code here');
       codequestion.text(questionDisplay[qNumber].question);
+      var result = [];
+      result = questionDisplay[qNumber].choices.split(':');
+      console.log('choices:', result);
+
       //   answerSelect1.innerHTML = questions[qNumber].choices[0];
       //   answerSelect2.innerHTML = questions[qNumber].choices[1];
       //   answerSelect3.innerHTML = questions[qNumber].choices[2];
