@@ -78,7 +78,7 @@ $(document).ready(() => {
 
   //  function checks whether or not answer is the correct one
   function answerCheck(btnId) {
-    if ($(btnId).text(questionDisplay[qNumber].answer)) {
+    if (btnId.text(questionDisplay[qNumber].answer)) {
       rightAnswer();
       qNumber++;
     } else {
@@ -108,18 +108,17 @@ $(document).ready(() => {
   //  this function generates the end screen and allows user to submit initials with their score
   function quizOver() {
     $('.quiz').hide();
-    var content = document.getElementById('center-content');
-    var done = document.getElementById('done');
-    var submit = document.getElementById('submit');
+    var content = $('#center-content');
+    var done = $('#done');
+    var submit = $('#submit');
 
-    timer.innerHTML = 0;
+    timer.text(0);
 
-    content.insertAdjacentHTML(
-      'afterbegin',
+    content.prepend(
       '<h1 id="done">All Done!</h1> <button id="submit" class="btn btn-danger">Submit</button> <input id="userScore"> - Enter Initials</input>'
     );
 
-    var done = document.getElementById('done');
+    var done = $('#done');
     done.insertAdjacentHTML(
       'afterend',
       '<p id="finalScore">Your final score is ' + score + '</p>'
