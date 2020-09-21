@@ -113,8 +113,6 @@ $(document).ready(() => {
     $('.quiz').hide();
     var content = $('#center-content');
     var done = $('#done');
-    var submit = $('#submit');
-
     timer.text(0);
 
     content.prepend(
@@ -130,7 +128,7 @@ $(document).ready(() => {
 
       let value = $('#userScore').value;
       localStorage.setItem(value, score);
-      window.location.href = 'highscore.html';
+      window.location.href = '/highscores';
       console.log(window.location.href);
     });
     clearInterval(quizTime);
