@@ -80,7 +80,7 @@ $(document).ready(() => {
   answerCheck = (btnId) => {
     console.log('answercheck:', questionDisplay[qNumber].answer, btnId);
 
-    if ($('#btnId').text(questionDisplay[qNumber].answer)) {
+    if ($(`#${btnId}`).text(questionDisplay[qNumber].answer)) {
       rightAnswer();
       qNumber++;
     } else {
