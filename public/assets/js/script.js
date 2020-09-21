@@ -48,8 +48,6 @@ $(document).ready(() => {
       data.forEach((question) => {
         questioncount = question.id;
       });
-
-      console.log('questions length', questioncount);
     });
 
     $('.codeQuiz').hide();
@@ -76,7 +74,7 @@ $(document).ready(() => {
     targetSubmit.on('click', function (event) {
       event.preventDefault();
 
-      let value = $('#userScore').value;
+      let value = $('#userScore').val();
       localStorage.setItem(value, score);
       window.location.href = '/highscores';
       console.log(window.location.href);
@@ -91,7 +89,6 @@ $(document).ready(() => {
       codequestion.text(questionDisplay[qNumber].question);
       let result;
       result = questionDisplay[qNumber].choices.split(':');
-      console.log('choices:', result);
 
       answerSelect1.text(result[0]);
       answerSelect2.text(result[1]);
@@ -102,9 +99,7 @@ $(document).ready(() => {
 
   //  function checks whether or not answer is the correct one
   answerCheck = (btnId) => {
-    console.log('answercheck:', questionDisplay[qNumber].answer, btnId);
-
-    if ($(`#${btnId}`).text(questionDisplay[qNumber].answer)) {
+    if ($(`#${btnId}`).text() === questionDisplay[qNumber].answer) {
       rightAnswer();
       qNumber++;
     } else {
