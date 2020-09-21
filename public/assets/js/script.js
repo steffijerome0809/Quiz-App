@@ -12,7 +12,7 @@ $(document).ready(() => {
   var quizTime = 0;
   //var score = 0;
   let questioncount = 0;
-  const questionDisplay = '';
+  let questionDisplay = '';
 
   function quizStart() {
     timeLeft = 75;
@@ -39,9 +39,9 @@ $(document).ready(() => {
   }
 
   //  function hides initial elements and shows quiz relevant ones, then starts main quiz function
-  function createQuestion() {
+  const createQuestion = async () => {
     // get the questions from db
-    $.get('/api/questions').then((data) => {
+    await $.get('/api/questions').then((data) => {
       // loop over the questions
       questionDisplay = data;
       data.forEach((question) => {
@@ -60,15 +60,17 @@ $(document).ready(() => {
     $('.codeQuiz').hide();
 
     $('.quiz').show();
-    CodeQuiz(qNumber);
-  }
+    await CodeQuiz(qNumber);
+  };
 
   //  function checks if there are anymore questions and if not ends the quiz
   function CodeQuiz() {
+    console.log('code here', qNumber, questioncount);
     if (qNumber >= questioncount) {
       return;
       // quizOver();
     } else {
+      console.log('code here');
       codequestion.text(questionDisplay[qNumber].question);
       //   answerSelect1.innerHTML = questions[qNumber].choices[0];
       //   answerSelect2.innerHTML = questions[qNumber].choices[1];
