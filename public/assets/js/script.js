@@ -78,7 +78,9 @@ $(document).ready(() => {
 
   //  function checks whether or not answer is the correct one
   answerCheck = (btnId) => {
-    if (btnId.text(questionDisplay[qNumber].answer)) {
+    console.log('answercheck:', questionDisplay[qNumber].answer, btnId);
+
+    if ($('#btnId').text(questionDisplay[qNumber].answer)) {
       rightAnswer();
       qNumber++;
     } else {
@@ -87,6 +89,7 @@ $(document).ready(() => {
     }
     CodeQuiz(qNumber);
   };
+
   //  this function runs when answer is right
   function rightAnswer() {
     score = timeLeft;
