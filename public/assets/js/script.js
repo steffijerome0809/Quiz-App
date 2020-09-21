@@ -10,7 +10,7 @@ $(document).ready(() => {
   var qNumber = 0;
   var timeLeft = 0;
   var quizTime = 0;
-  //var score = 0;
+  var score = 0;
   let questioncount = 0;
   let questionDisplay = '';
 
@@ -39,6 +39,7 @@ $(document).ready(() => {
   }
 
   //  function hides initial elements and shows quiz relevant ones, then starts main quiz function
+  // $ and API Calllzzzz
   const createQuestion = async () => {
     // get the questions from db
     await $.get('/api/questions').then((data) => {
@@ -49,12 +50,6 @@ $(document).ready(() => {
       });
 
       console.log('questions length', questioncount);
-      // data.forEach((park) => {
-      //   // append them as select options
-      //   const newLoc = $('<option>').attr('value', park.id).text(park.title);
-      //   locationInput.append(newLoc);
-      // });
-      // locationInput.formSelect();
     });
 
     $('.codeQuiz').hide();
@@ -80,7 +75,65 @@ $(document).ready(() => {
       answerSelect4.text(result[3]);
     }
   }
-  // $ and API Calllzzzz
+
+  //  function checks whether or not answer is the correct one
+  function answerCheck(btnId) {
+    if ($(btnId).text(questionDisplay[qNumber].answer)) {
+      rightAnswer();
+      qNumber++;
+    } else {
+      wrongAnswer();
+      qNumber++;
+    }
+    CodeQuiz(qNumber);
+  }
+  //  this function runs when answer is right
+  function rightAnswer() {
+    score = timeLeft;
+    feedback.text('Correct');
+    setTimeout(function () {
+      feedback.text('');
+    }, 800);
+  }
+
+  //  this function runs when answer is wrong
+  function wrongAnswer() {
+    timeLeft = timeLeft - 15;
+    feedback.text('Wrong');
+    setTimeout(function () {
+      feedback.text('');
+    }, 800);
+  }
+
+  //  this function generates the end screen and allows user to submit initials with their score
+  function quizOver() {
+    $('.quiz').hide();
+    var content = document.getElementById('center-content');
+    var done = document.getElementById('done');
+    var submit = document.getElementById('submit');
+
+    timer.innerHTML = 0;
+
+    content.insertAdjacentHTML(
+      'afterbegin',
+      '<h1 id="done">All Done!</h1> <button id="submit" class="btn btn-danger">Submit</button> <input id="userScore"> - Enter Initials</input>'
+    );
+
+    var done = document.getElementById('done');
+    done.insertAdjacentHTML(
+      'afterend',
+      '<p id="finalScore">Your final score is ' + score + '</p>'
+    );
+
+    var submit = document.getElementById('submit');
+    submit.addEventListener('click', function () {
+      var value = document.getElementById('userScore').value;
+      localStorage.setItem(value, score);
+      window.location.href = 'highscore.html';
+      console.log(window.location.href);
+    });
+    clearInterval(quizTime);
+  }
 
   // Document => Start Quiz
   $(document).on('click', '#startbutton', () => {
