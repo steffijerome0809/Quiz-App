@@ -1,7 +1,8 @@
 $(document).ready(() => {
   var timer = $('#timer');
   // var title = $('#pageTitle');
-
+  var codequestion = $('#question');
+  var qNumber = 0;
   var timeLeft = 0;
   var quizTime = 0;
   //var score = 0;
@@ -32,8 +33,6 @@ $(document).ready(() => {
 
   //  function hides initial elements and shows quiz relevant ones, then starts main quiz function
   function createQuestion() {
-    console.log('code here');
-
     $('.codeQuiz').hide();
     $('.quiz').show();
     //CodeQuiz(qNumber);
