@@ -58,11 +58,35 @@ $(document).ready(() => {
     await CodeQuiz(qNumber);
   };
 
+  //  this function generates the end screen and allows user to submit initials with their score
+  quizOver = () => {
+    $('.quiz').hide();
+    var content = $('#center-content');
+    var done = $('#done');
+    timer.text(0);
+
+    content.prepend(
+      '<h1 id="done">All Done!</h1> <button id="submit" class="btn btn-danger">Submit</button> <input id="userScore"> - Enter Initials</input>'
+    );
+
+    var done = $('#done');
+    done.after('<p id="finalScore">Your final score is ' + score + '</p>');
+
+    var targetSubmit = $('#submit');
+    targetSubmit.on('click', function (event) {
+      event.preventDefault();
+
+      let value = $('#userScore').value;
+      localStorage.setItem(value, score);
+      window.location.href = '/highscores';
+      console.log(window.location.href);
+    });
+    clearInterval(quizTime);
+  };
   //  function checks if there are anymore questions and if not ends the quiz
-  function CodeQuiz() {
+  CodeQuiz = () => {
     if (qNumber >= questioncount) {
-      return;
-      // quizOver();
+      quizOver();
     } else {
       codequestion.text(questionDisplay[qNumber].question);
       let result;
@@ -74,7 +98,7 @@ $(document).ready(() => {
       answerSelect3.text(result[2]);
       answerSelect4.text(result[3]);
     }
-  }
+  };
 
   //  function checks whether or not answer is the correct one
   answerCheck = (btnId) => {
@@ -106,32 +130,6 @@ $(document).ready(() => {
     setTimeout(function () {
       feedback.text('');
     }, 800);
-  }
-
-  //  this function generates the end screen and allows user to submit initials with their score
-  function quizOver() {
-    $('.quiz').hide();
-    var content = $('#center-content');
-    var done = $('#done');
-    timer.text(0);
-
-    content.prepend(
-      '<h1 id="done">All Done!</h1> <button id="submit" class="btn btn-danger">Submit</button> <input id="userScore"> - Enter Initials</input>'
-    );
-
-    var done = $('#done');
-    done.after('<p id="finalScore">Your final score is ' + score + '</p>');
-
-    var targetSubmit = $('#submit');
-    targetSubmit.on('click', function (event) {
-      event.preventDefault();
-
-      let value = $('#userScore').value;
-      localStorage.setItem(value, score);
-      window.location.href = '/highscores';
-      console.log(window.location.href);
-    });
-    clearInterval(quizTime);
   }
 
   // Document => Start Quiz
