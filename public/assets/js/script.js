@@ -1,7 +1,12 @@
 $(document).ready(() => {
   var timer = $('#timer');
-  // var title = $('#pageTitle');
   var codequestion = $('#question');
+  var answerSelect1 = $('#answer1');
+  var answerSelect2 = $('#answer2');
+  var answerSelect3 = $('#answer3');
+  var answerSelect4 = $('#answer4');
+  var feedback = $('#feedback');
+  var title = $('#pageTitle');
   var qNumber = 0;
   var timeLeft = 0;
   var quizTime = 0;
@@ -35,7 +40,7 @@ $(document).ready(() => {
   function createQuestion() {
     $('.codeQuiz').hide();
     $('.quiz').show();
-    //CodeQuiz(qNumber);
+    CodeQuiz(qNumber);
   }
   // Document => Start Quiz
   $(document).on('click', '#startbutton', () => {
