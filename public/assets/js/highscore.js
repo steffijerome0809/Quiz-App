@@ -16,3 +16,8 @@ function clearStorage() {
   localStorage.clear();
   window.location.reload();
 }
+
+// <!-- .insertAdjacentHTML("beforeBegin", ...) //$('...').before(...)
+// .insertAdjacentHTML("afterBegin", ...) //$('...').prepend(...)
+// .insertAdjacentHTML("beforeEnd", ...) //$('...').append(...)
+// .insertAdjacentHTML("afterEnd", ...) //$('...').after(...) -->
