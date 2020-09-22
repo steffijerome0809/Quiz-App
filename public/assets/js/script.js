@@ -99,7 +99,15 @@ $(document).ready(() => {
 
   //  function checks whether or not answer is the correct one
   answerCheck = (btnId) => {
-    if ($(`#${btnId}`).text() === questionDisplay[qNumber].answer) {
+    console.log(
+      'answerchk:',
+      $(`#${btnId}`).text(),
+      'answer:',
+      questionDisplay[qNumber].answer
+    );
+    if (
+      $(`#${btnId}`).text().trim() === questionDisplay[qNumber].answer.trim()
+    ) {
       rightAnswer();
       qNumber++;
     } else {
