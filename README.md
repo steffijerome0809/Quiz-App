@@ -14,7 +14,7 @@ install npm express
 npm install sequelize (dont use npm i sequelize)
 npm i mysql2
 
-## GIF shot Quiz App!
+## GIF shot Quiz-App
 
 ![](./public/images/QuizApp.gif)
 
