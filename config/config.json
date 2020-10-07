@@ -1,25 +1,25 @@
 {
   "development": {
-    "username": "root",
+    "username": "admin",
     "password": "password",
-    "database": "quizapp",
-    "host": "localhost",
+    "database": "quizapp1",
+    "host": "quizapp1.cotqf9aabqqa.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
+    "username": "admin",
     "password": "password",
-    "database": "quizapp",
-    "host": "localhost",
+    "database": "quizapp1",
+    "host": "quizapp1.cotqf9aabqqa.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
+    "username": "admin",
     "password": "password",
-    "database": "quizapp",
-    "host": "localhost",
+    "database": "quizapp1",
+    "host": "quizapp1.cotqf9aabqqa.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   }
